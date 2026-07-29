@@ -1,0 +1,20 @@
+import canonicalLaneMathlib.AdmissibleClass
+import CivilEngineeringTransportationEngineeringCanonicalLaneLean.HighwayCapacityManual
+import CivilEngineeringTransportationEngineeringCanonicalLaneLean.TrafficFlowTheory
+import CivilEngineeringTransportationEngineeringCanonicalLaneLean.PavementDesign
+import CivilEngineeringTransportationEngineeringCanonicalLaneLean.BridgeLoadRating
+import CivilEngineeringTransportationEngineeringCanonicalLaneLean.GeometricDesign
+import CivilEngineeringTransportationEngineeringCanonicalLaneLean.TransportationPlanning
+
+namespace HautevilleHouse
+namespace CivilEngineeringTransportationEngineeringCanonicalLaneLean
+
+def ConstrainedTransportationClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_transportation_endgame (A : AdmissibleClass) :
+    ConstrainedTransportationClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end CivilEngineeringTransportationEngineeringCanonicalLaneLean
+end HautevilleHouse
